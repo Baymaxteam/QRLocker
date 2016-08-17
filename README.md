@@ -17,7 +17,10 @@ sudo apt-get update
 sudo apt-get -y install python3.5  python3.5-dev python3-pip
 ### pyQt5
 sudo apt-get install python3.5-gdbm
-sudo pip3 install pyqt5
+sudo pip3 install PyQt5
+
+###### on Raspberry
+sudo apt-get install python3-pyqt5
 
 #### for developing. QtDesigner and pyuic5
 sudo apt-get install qttools5-dev-tools 
@@ -29,4 +32,13 @@ $ /usr/lib/x86_64-linux-gnu/qt5/bin/designer
 ###python QR decoder 
 sudo pip3 install pillow pyqrcode libzbar-dev zbarlight
 
+
+## Troubleshooting
+1. Python: locale.Error: unsupported locale setting
+Solution: 
+a. export LC_ALL=C
+
+b. export LC_ALL="en_US.UTF-8"
+   export LC_CTYPE="en_US.UTF-8"
+   sudo dpkg-reconfigure locales
 
