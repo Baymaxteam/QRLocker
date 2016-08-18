@@ -58,7 +58,11 @@ sudo python3 setup.py install
 ## RPi3 GPIO
 sudo apt-get install python3-rpi.gpio
 
-
+## RPi3 Chinese
+sudo locale-gen zh_TW zh_TW.UTF-8
+sudo apt-get install fonts-noto-cjk
+sudo fc-cache -fv
+reboot
 
 ## Troubleshooting
 1. Python: locale.Error: unsupported locale setting
