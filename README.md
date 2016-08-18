@@ -36,10 +36,16 @@ $ /usr/lib/x86_64-linux-gnu/qt5/bin/designer
 ###python QR decoder 
 sudo pip3 install pillow pyqrcode libzbar-dev zbarlight
 
-### OpenCV  
-######ref: http://cyaninfinite.com/tutorials/installing-opencv-in-ubuntu-for-python-3/
-sudo apt-get install build-essential cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
-
+### Pygame  
+sudo apt-get install mercurial 
+hg clone https://bitbucket.org/pygame/pygame
+cd pygame
+sudo apt-get install libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev libfreetype6-dev
+sudo apt-get install libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev
+sudo apt-get install python3-dev 
+sudo pip3 install numpy
+python3 setup.py build 
+sudo python3 setup.py install
 
 ## Troubleshooting
 1. Python: locale.Error: unsupported locale setting
