@@ -64,6 +64,12 @@ sudo apt-get install fonts-noto-cjk
 sudo fc-cache -fv
 reboot
 
+## RPi3 Wallpaper
+#####ref: https://www.maketecheasier.com/nitrogen-a-background-setter-for-lightweight-desktop-manager/
+sudo apt-get install nitrogen
+nitrogen ~/wallpaper
+###### another choise: Fbsetbg
+
 ## Troubleshooting
 1. Python: locale.Error: unsupported locale setting
 Solution: 
