@@ -38,18 +38,32 @@ sudo pip3 install pillow pyqrcode libzbar-dev zbarlight
 
 ### Pygame  
 sudo apt-get install mercurial 
+
 hg clone https://bitbucket.org/pygame/pygame
+
 cd pygame
+
 sudo apt-get install libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev libfreetype6-dev
+
 sudo apt-get install libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev
+
 sudo apt-get install python3-dev 
+
 sudo pip3 install numpy
+
 python3 setup.py build 
+
 sudo python3 setup.py install
+
+## RPi3 GPIO
+sudo apt-get install python3-rpi.gpio
+
+
 
 ## Troubleshooting
 1. Python: locale.Error: unsupported locale setting
 Solution: 
+
 a. export LC_ALL=C
 
 b. export LC_ALL="en_US.UTF-8"
