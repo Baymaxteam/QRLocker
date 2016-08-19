@@ -6,6 +6,8 @@ import pygame
 import sys
 import pygame.camera
 import pygame.image
+from PIL import ImageQt, Image
+import time
 
 pygame.camera.init()
 
@@ -26,32 +28,44 @@ HEIGHT = img.get_height()
 class ImageWidget(QWidget):
     def __init__(self,surface,parent=None):
         super(ImageWidget,self).__init__(parent)
-        w=surface.get_width()
-        h=surface.get_height()
-        self.data=surface.get_buffer().raw
-        self.image=QtGui.QImage(self.data,w,h,QtGui.QImage.Format_RGB32)
+        WIDTH=surface.get_width()
+        HEIGHT=surface.get_height()
+        rawData = pygame.image.tostring(surface, "RGBA", False)
+        PilImage = Image.frombytes('RGBA', (WIDTH, HEIGHT), rawData)
+        QtImage1 = ImageQt.ImageQt(PilImage)
+        QtImage2 = QtGui.QImage(QtImage1)
+        pixmap = QtGui.QPixmap.fromImage(QtImage2)
+        self.label = QtWidgets.QLabel('', self)
+        self.label.setPixmap(pixmap)
 
-    def paintEvent(self,event):
-        qp=QtGui.QPainter()
-        qp.begin(self)
+
+    def drawImage(self):
         surface = webcam.get_image()
-        w=surface.get_width()
-        h=surface.get_height()
-        self.data=surface.get_buffer().raw
-        self.image=QtGui.QImage(self.data,w,h,QtGui.QImage.Format_RGB32)
-        qp.drawImage(0,0,self.image)
-        qp.end()
+        WIDTH = surface.get_width()
+        HEIGHT = surface.get_height()
+        rawData = pygame.image.tostring(surface, "RGBA", False)
+        PilImage = Image.frombytes('RGBA', (WIDTH, HEIGHT), rawData)
+        QtImage1 = ImageQt.ImageQt(PilImage)
+        QtImage2 = QtGui.QImage(QtImage1)
+        pixmap = QtGui.QPixmap.fromImage(QtImage2)
+        self.label.setPixmap(pixmap)
+        self.label.update()
 
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self,surface,parent=None):
         super(MainWindow,self).__init__(parent)
+        self.resize(640, 480)
         self.setCentralWidget(ImageWidget(surface))
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.centralWidget().drawImage)
+        self.timer.start(1)
 
 
 
 app=QApplication(sys.argv)
 w=MainWindow(img)
 w.show()
+
 
 app.exec_()
