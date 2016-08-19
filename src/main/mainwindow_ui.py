@@ -15,7 +15,7 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QtCore.QSize(500, 500))
         MainWindow.setMaximumSize(QtCore.QSize(500, 500))
         MainWindow.setAutoFillBackground(False)
-        MainWindow.setStyleSheet("background-color: rgb(62, 62, 62);opacity: 0.5")
+        MainWindow.setStyleSheet("background-color: rgb(62, 62, 62)")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.InfotextBrowser = QtWidgets.QTextBrowser(self.centralwidget)
