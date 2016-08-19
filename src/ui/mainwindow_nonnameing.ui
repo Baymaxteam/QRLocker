@@ -32,7 +32,7 @@
    <string notr="true">background-color: rgba(4, 20, 20, 100)</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTextBrowser" name="textBrowser">
+   <widget class="QTextBrowser" name="InfotextBrowser">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -77,7 +77,7 @@
         <number>20</number>
        </property>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="enableCamButton">
          <property name="styleSheet">
           <string notr="true">background-color: rgb(200, 200, 200)</string>
          </property>
@@ -87,39 +87,39 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="keyWidgetButton">
          <property name="styleSheet">
           <string notr="true">background-color: rgb(200, 200, 200)</string>
          </property>
          <property name="text">
-          <string>啟動相機</string>
+          <string>產生鑰匙</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="doorControlButton">
          <property name="styleSheet">
           <string notr="true">background-color: rgb(200, 200, 200)</string>
          </property>
          <property name="text">
-          <string>啟動相機</string>
+          <string>手動控制</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_4">
+        <widget class="QPushButton" name="aboutInfoButton">
          <property name="styleSheet">
           <string notr="true">background-color: rgb(200, 200, 200)</string>
          </property>
          <property name="text">
-          <string>啟動相機</string>
+          <string>關於我們</string>
          </property>
         </widget>
        </item>
       </layout>
      </item>
      <item row="0" column="1">
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="WebCamLabel">
        <property name="minimumSize">
         <size>
          <width>320</width>

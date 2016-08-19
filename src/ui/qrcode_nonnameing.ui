@@ -16,7 +16,7 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgba(4, 20, 20, 100)</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="QRcodeLabel">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -50,7 +50,7 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit">
+  <widget class="QTextEdit" name="QRtextEdit">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -63,7 +63,7 @@
     <string notr="true">background-color:rgb(200, 200, 200)</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="keyMakeButton">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -79,10 +79,10 @@
     <string>產生鑰匙</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="closeWidgetButton">
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>270</x>
      <y>350</y>
      <width>90</width>
      <height>31</height>

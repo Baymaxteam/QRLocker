@@ -90,3 +90,9 @@ b. export LC_ALL="en_US.UTF-8"
    export LC_CTYPE="en_US.UTF-8"
    sudo dpkg-reconfigure locales
 
+
+## QT ui to py
+pyuic5 -o mainwindow_nonnameing.py mainwindow_nonnameing.ui 
+
+pyuic5 -o qrcode_nonnameing.py qrcode_nonnameing.ui
+ 
