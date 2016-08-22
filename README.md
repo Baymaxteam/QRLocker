@@ -79,6 +79,78 @@ sudo apt-get install nitrogen
 nitrogen ~/wallpaper
 ###### another choise: Fbsetbg
 
+
+
+## remotelty start GUI program
+
+1. need auto login RPi 
+###### ref:https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=127042
+sudo vim /etc/systemd/system/getty@tty1.service.d/autologin.conf
+
+paste:
+
+[Service]
+
+ExecStart=
+
+ExecStart=-/sbin/agetty --autologin pi --noclear %I 38400 linux
+
+save and exit..
+
+sudo systemctl enable getty@tty1.service
+
+2. start x11 server
+
+need keyboard... 
+
+startx -- -nocursor
+
+3. run programs
+
+DISPLAY=:0 python3 <your program>
+
+
+
+## Touch Screen
+###### office website: http://www.eleduino.com/7-0-Inch-1024x600-Pixel-IPS-Hdmi-Input-Capacitive-Touch-Screen-Support-Raspberry-pi-Banana-Pi-Pro-Be-p10533.html
+
+modify /boot/config.txt：
+
+hdmi_group=2
+
+hdmi_mode=1
+
+hdmi_mode=87
+
+hdmi_cvt 1024 600 60 6 0 0 0
+
+max_usb_current=1
+
+
+Driver: https://github.com/derekhe/waveshare-7inch-touchscreen-driver
+
+## screen - keep processes running after ending ssh session
+###Installation:
+sudo apt-get install screen
+
+###Using:
+$ screen
+
+do things...
+
+key in "Ctrl + a" "d" (detach)
+
+you will see the output like "[detached from 5326.pts-0.seal-home]" 
+
+and then you can close the ssh connection
+
+
+### Reconnection:
+
+$ screen -r
+
+
+
 ## Troubleshooting
 1. Python: locale.Error: unsupported locale setting
 
