@@ -73,10 +73,13 @@ sudo fc-cache -fv
 reboot
 
 ## RPi3 Wallpaper
+
 #####ref: https://www.maketecheasier.com/nitrogen-a-background-setter-for-lightweight-desktop-manager/
+
 sudo apt-get install nitrogen
 
 nitrogen ~/wallpaper
+
 ###### another choise: Fbsetbg
 
 
@@ -84,7 +87,9 @@ nitrogen ~/wallpaper
 ## remotelty start GUI program
 
 1. need auto login RPi 
+
 ###### ref:https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=127042
+
 sudo vim /etc/systemd/system/getty@tty1.service.d/autologin.conf
 
 paste:
