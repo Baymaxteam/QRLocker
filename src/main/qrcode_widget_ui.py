@@ -8,11 +8,14 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_Form(object):
+class Ui_Widget(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(400, 400)
-        Form.setStyleSheet("background-color: rgba(4, 20, 20, 100)")
+        Form.setStyleSheet("background-color: rgba(62, 62, 62, 180)")
+        Form.setMinimumSize(QtCore.QSize(400, 400))
+        Form.setMaximumSize(QtCore.QSize(400, 400))
+        Form.setAutoFillBackground(False)
         self.QRcodeLabel = QtWidgets.QLabel(Form)
         self.QRcodeLabel.setGeometry(QtCore.QRect(40, 20, 320, 240))
         self.QRcodeLabel.setMinimumSize(QtCore.QSize(320, 240))

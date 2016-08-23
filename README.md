@@ -106,9 +106,14 @@ sudo systemctl enable getty@tty1.service
 
 2. start x11 server
 
-need keyboard... 
+###### ref:https://wiki.archlinux.org/index.php/Xinit#Autostart_X_at_login
 
-startx -- -nocursor
+$ sudo vim  ~/.profile
+
+add one line
+
+[ -z "$DISPLAY" -a "$(fgconsole)" -eq 1 ] && exec startx -- -nocursor
+
 
 3. run programs
 
