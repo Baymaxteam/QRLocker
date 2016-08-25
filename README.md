@@ -11,6 +11,22 @@ python 3.5.2
 
 
 ##Install
+
+WIFI: $sudo apt-get install network-manager
+
+$sudo nano /etc/NetworkManager/nm-system-settings.conf
+
+[ifupdown]
+managed=false  <==== change to true
+
+
+
+Desktop(MATE) : $sudo apt-get install  ubuntu-mate-core ubuntu-mate-desktop
+
+about 2GB.....
+
+
+
 ### python3.5
 sudo add-apt-repository ppa:fkrull/deadsnakes
 
@@ -26,7 +42,7 @@ sudo pip3 install PyQt5
 ##### on Raspberry
 sudo apt-get install python3-pyqt5
 
-###### for GUI
+###### GUI server for no Desktop  
 sudo apt-get install xorg openbox
 
 ### for developing. QtDesigner and pyuic5
@@ -39,7 +55,10 @@ $ /usr/lib/x86_64-linux-gnu/qt5/bin/designer
 
 
 ###python QR decoder 
-sudo pip3 install pillow pyqrcode libzbar-dev zbarlight
+
+sudo apt-get install libzbar-dev
+
+sudo pip3 install pillow pyqrcode zbarlight
 
 ### Pygame  
 sudo apt-get install mercurial 
