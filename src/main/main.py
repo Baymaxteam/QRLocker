@@ -17,7 +17,7 @@ class MyPopup(QWidget, qrcode_widget_ui.Ui_Widget):
         self.setupUi(self)
         self.setGeometry(580, 50, 100, 100)
         #self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
-        #self.setWindowFlags(QtCore.Qt.FramelessWindowHint)  # 產生無框視窗
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)  # 產生無框視窗
         self.keyMakeButton.clicked.connect(self.generatingKey)
 
     def generatingKey(self):
@@ -44,7 +44,7 @@ class MainWindow(QtWidgets.QMainWindow, mainwindow_ui.Ui_MainWindow):
         super(MainWindow, self).__init__(parent)
         self.setupUi(self)
         self.setGeometry(40,50,100,100)
-        #self.setWindowFlags(QtCore.Qt.FramelessWindowHint) # 產生無框視窗
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint) # 產生無框視窗
         #self.setAttribute(QtCore.Qt.WA_TranslucentBackground) # 設定半透明
         self.keyWidgetButton.clicked.connect(self.popingNewWidegt)
         self.w = None
@@ -69,7 +69,7 @@ class MainWindow(QtWidgets.QMainWindow, mainwindow_ui.Ui_MainWindow):
         QtImage1 = ImageQt.ImageQt(img)
         QtImage2 = QtGui.QImage(QtImage1)
         pixmap = QtGui.QPixmap.fromImage(QtImage2)
-        #self.WebCamLabel.setPixmap(pixmap)
+        self.WebCamLabel.setPixmap(pixmap)
         if codes != None:
             print('[Decoder] QR codes: {}'.format(codes[0]))
             if(codes[0].decode() == self.w.KEY and self.doorState==False):
