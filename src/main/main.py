@@ -1,6 +1,6 @@
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets, Qt
-from PyQt5.QtWidgets import QTextEdit, QWidget, QDialog, QApplication
+from PyQt5.QtWidgets import QTextEdit, QWidget, QDialog, QApplication, QLabel
 import mainwindow_ui, qrcode_widget_ui
 from PIL import ImageQt, Image
 import qrcode
@@ -11,14 +11,25 @@ import zbarlight
 import RPi.GPIO as GPIO
 
 
+class aboutMe(QWidget):
+    def __init__(self):
+        QWidget.__init__(self)
+        self.label = QLabel(self) 
+        pixmap = QtGui.QPixmap('aboutMe.jpg')
+        pixmap = pixmap.scaledToWidth(500)
+        self.label.setPixmap(pixmap)
+        self.setGeometry(0, 0, pixmap.width(), pixmap.height())
+
+
 class MyPopup(QWidget, qrcode_widget_ui.Ui_Widget):
     def __init__(self):
         QWidget.__init__(self)
         self.setupUi(self)
         self.setGeometry(580, 50, 100, 100)
-        #self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)  # 產生無框視窗
         self.keyMakeButton.clicked.connect(self.generatingKey)
+        self.closeWidgetButton.clicked.connect(self.close)
 
     def generatingKey(self):
         key = self.QRtextEdit.toPlainText()
@@ -44,8 +55,8 @@ class MainWindow(QtWidgets.QMainWindow, mainwindow_ui.Ui_MainWindow):
         super(MainWindow, self).__init__(parent)
         self.setupUi(self)
         self.setGeometry(40,50,100,100)
-        self.setWindowFlags(QtCore.Qt.FramelessWindowHint) # 產生無框視窗
-        #self.setAttribute(QtCore.Qt.WA_TranslucentBackground) # 設定半透明
+        #self.setWindowFlags(QtCore.Qt.FramelessWindowHint) # 產生無框視窗
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground) # 設定半透明
         self.keyWidgetButton.clicked.connect(self.popingNewWidegt)
         self.w = None
         self.w = MyPopup()
@@ -53,7 +64,13 @@ class MainWindow(QtWidgets.QMainWindow, mainwindow_ui.Ui_MainWindow):
         self.w.KEY = '000000'
         self.doorState = False
         self.doorControlButton.clicked.connect(self.doorTrigger)
+        self.aboutInfoButton.clicked.connect(self.aboutMeEvent)        
+        self.aboutW = None
+        self.aboutW = aboutMe()
+         
 
+    def aboutMeEvent(self):
+        self.aboutW.show()
 
     def popingNewWidegt(self):
         print("Opening a new popup window...")
