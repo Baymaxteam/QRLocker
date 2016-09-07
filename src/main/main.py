@@ -9,6 +9,8 @@ import pygame.image
 from PIL import Image
 import zbarlight
 import RPi.GPIO as GPIO
+import string
+import random
 
 
 class aboutMe(QWidget):
@@ -61,7 +63,9 @@ class MainWindow(QtWidgets.QMainWindow, mainwindow_ui.Ui_MainWindow):
         self.w = None
         self.w = MyPopup()
         self.enableCamButton.clicked.connect(self.startCam)
-        self.w.KEY = '000000'
+        self.w.KEY = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(6))
+        self.w.QRtextEdit.setText(self.w.KEY)
+        self.w.generatingKey()
         self.doorState = False
         self.doorControlButton.clicked.connect(self.doorTrigger)
         self.aboutInfoButton.clicked.connect(self.aboutMeEvent)        
